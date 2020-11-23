@@ -6,3 +6,11 @@ fn main() {
 fn plus_one(x: i32) -> i32 {
     x + 1
 }
+
+fn five() -> i32 {
+    5
+}
+
+fn six() -> i32 {
+    return 6;
+}
