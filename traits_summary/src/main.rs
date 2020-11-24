@@ -1,4 +1,5 @@
 use traits_summary::Summary;
+use traits_summary::notify;
 
 fn main() {
     let tweet = traits_summary::Tweet {
@@ -8,4 +9,6 @@ fn main() {
         retweet: false,
     };
     println!("1 new tweet: {}", tweet.summarize());
+
+    notify(&tweet);
 }
