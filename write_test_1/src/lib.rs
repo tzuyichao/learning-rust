@@ -73,4 +73,10 @@ mod test {
             Err(String::from("two plus two does not equals four"))
         }
     }
+
+    #[test]
+    #[ignore]
+    fn i_do_want_run_this_test() {
+        // expansive tests...
+    }
 }
