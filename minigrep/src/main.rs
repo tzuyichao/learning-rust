@@ -15,8 +15,8 @@ struct Config {
 }
 
 fn parse_config(args: &[String]) -> Config {
-    let query = &args[1];
-    let filename = &args[2];
+    let query = args[1].clone();
+    let filename = args[2].clone();
 
-    Config { query: query.to_string(), filename: filename.to_string() }
+    Config { query, filename }
 }
