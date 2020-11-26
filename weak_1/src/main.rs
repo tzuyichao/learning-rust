@@ -25,7 +25,11 @@ fn main() {
         println!("branch strong = {}, weak = {}", Rc::strong_count(&branch), Rc::weak_count(&branch));
         *leaf.parent.borrow_mut() = Rc::downgrade(&branch);
         println!("After cycle created.");
+        println!("leaf {:?}", leaf);
+        println!("branch {:?}", branch);
         println!("leaf strong = {}, weak = {}", Rc::strong_count(&leaf), Rc::weak_count(&leaf));
         println!("branch strong = {}, weak = {}", Rc::strong_count(&branch), Rc::weak_count(&branch));
     }
+    println!("leaf parent = {:?}", leaf.parent.borrow().upgrade());
+    println!("leaf strong = {}, weak = {}", Rc::strong_count(&leaf), Rc::weak_count(&leaf));
 }
