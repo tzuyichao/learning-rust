@@ -29,4 +29,12 @@ fn main() {
     let lambda = MyBox::new(x);
     assert_eq!(5, *lambda);
     assert_eq!(5, *(lambda.deref()));
+    
+    let m = MyBox::new(String::from("Rust"));
+    hello(&m);
+    hello(&(*m)[..]);
+}
+
+fn hello(name: &str) {
+    println!("Hello, {}", name);
 }
