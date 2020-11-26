@@ -9,12 +9,26 @@ impl Drop for CustomSmartPointer {
 }
 
 fn main() {
-    let _c = CustomSmartPointer {
+    let c = CustomSmartPointer {
         data: String::from("my stuff"),
     };
     let data: String = String::from("other stuff");
     let _d = CustomSmartPointer {
         data,
     };
+    {
+        let _e = CustomSmartPointer {
+            data: String::from("this stuff"),
+        };
+    }
     println!("CustomSmartPointer created.");
+    // c.drop();
+    // 25 |     c.drop();
+    // |       ^^^^
+    // |       |
+    // |       explicit destructor calls not allowed
+    // |       help: consider using `drop` function: `drop(c)`
+    // std::mem::drop
+    drop(c);
+    println!("after std::mem::drop c");
 }
