@@ -9,6 +9,13 @@ fn main() {
 
     let list_of_strings2: Vec<String> = list_of_numbers.iter().map(ToString::to_string).collect();
     println!("list_of_strings2: {:?}", list_of_strings2);
+
+    fn returns_closure() -> fn(i32) -> i32 {
+        |x| x + 1
+    }
+
+    let answer = do_twice(returns_closure(), 5);
+    println!("answer: {}", answer);
 }
 
 fn add_one(x: i32) -> i32 {
