@@ -22,6 +22,12 @@ macro_rules! create_function2 {
     }
 }
 
+macro_rules! print_result {
+    ($expression:expr) => {
+        println!("{:?} = {:?}", stringify!($expression), $expression)
+    }
+}
+
 fn main() {
     say_hello!();
     create_function!(foo);
@@ -31,4 +37,11 @@ fn main() {
     foo();
     bar();
     goor(5);
+
+    print_result!({1u32 + 1});
+
+    print_result!({
+        let x = 1u32;
+        x * x + 2 * x - 1
+    });
 }
