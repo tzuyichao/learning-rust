@@ -5,14 +5,16 @@ use std::net::TcpStream;
 use std::fs;
 use std::thread;
 use std::time::Duration;
+use tcp_hello::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    let thread_pool = ThreadPool::new(4);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
         println!("Connection established!");
-        thread::spawn(|| {
+        thread_pool.execute(|| {
             handle_connection(stream);
         });
     }
