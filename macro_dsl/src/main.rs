@@ -1,10 +1,10 @@
 macro_rules! calculate {
-    (eval $e:expr) => {{
-        {
+    (eval $e:expr) => {
+        {{
             let val: usize = $e;
             println!("{} = {}", stringify!($e), val);
-        }
-    }}
+        }}
+    }
 }
 
 fn main() {
