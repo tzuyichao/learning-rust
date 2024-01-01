@@ -15,4 +15,13 @@ fn main() {
         42.0_f32,
     ];
     println!("{:02}", forty_twos[0]);
+
+    let three = 0b11;
+    let thirty = 0o36;
+    let three_hundred = 0x12C;
+
+    println!("base 10: {} {} {}", three, thirty, three_hundred);
+    println!("base 2:  {:b} {:b} {:b}", three, thirty, three_hundred);
+    println!("base 8:  {:o} {:o} {:o}", three, thirty, three_hundred);
+    println!("base 16: {:x} {:x} {:x}", three, thirty, three_hundred);
 }
