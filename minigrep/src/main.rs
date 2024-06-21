@@ -13,7 +13,11 @@ fn main() {
     println!("Query: {}", config.query);
     println!("In file: {}", config.filename);
 
-    let contents = fs::read_to_string(config.filename).expect("Should have been able to read the file");
+    run(config);
+}
+
+fn run(config: Config) {
+    let contents = fs::read_to_string(config.filename).expect("Should have bean able to read the file");
 
     println!("With text:\n{contents}");
 }
