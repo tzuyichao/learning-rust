@@ -1,4 +1,5 @@
 use std::env;
+use std::fs;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -7,6 +8,10 @@ fn main() {
     
     println!("Query: {}", config.query);
     println!("In file: {}", config.filename);
+
+    let contents = fs::read_to_string(config.filename).expect("Should have been able to read the file");
+
+    println!("With text:\n{contents}");
 }
 
 struct Config {
